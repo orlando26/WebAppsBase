@@ -1,0 +1,14 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+
+#header{
+	height: 15vh;
+}
+#content{
+	height: 75vh;
+}
+#footer{
+	height: 10vh;
+}
