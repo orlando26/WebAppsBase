@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+
 public class SQL {
 	public static String sqlFolder = "/com/jsftemplate/sqlFiles/";
 	
@@ -45,5 +48,12 @@ public class SQL {
 		 				System.out.println(npe.getMessage());
 		 			}
 		 		}
+	}
+	
+	public static SQLQuery getQueryByEntity(Session session, Class<?> entity, String queryName){
+		String queryString = getQuery(entity.getName(), queryName);
+		SQLQuery query = session.createSQLQuery(queryString);
+		query.addEntity(entity);
+		return query;
 	}
 }
