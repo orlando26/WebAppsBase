@@ -27,7 +27,7 @@
 				</b:inputText>
 				<b:selectBooleanCheckbox value="true" caption="remember me" />
 				<h4>
-					<p:commandLink value="Register"></p:commandLink>
+					<p:commandLink value="Register" actionListener="#{log.regPage}" ajax="false"></p:commandLink>
 				</h4>
 				<b:commandButton action="#{log.logIn}" look="primary btn-block"
 					value="Sign In" icon="log-in" size="lg" />

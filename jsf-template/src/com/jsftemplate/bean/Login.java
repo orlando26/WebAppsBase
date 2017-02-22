@@ -19,6 +19,11 @@ public class Login extends Form{
 		}
 	}
 	
+	public void regPage(){
+		System.out.println("Register");
+		redirect("/pages/register.xhtml");
+	}
+	
 	
 	/* Getters & Setters */
 	public String getUserName() {
