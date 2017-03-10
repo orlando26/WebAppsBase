@@ -9,6 +9,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 public class SQL {
+	
 	public static String sqlFolder = "/com/jsftemplate/sqlFiles/";
 	
 	public static String getQuery(String sqlFile, String queryName){
@@ -51,7 +52,7 @@ public class SQL {
 	}
 	
 	public static SQLQuery getQueryByEntity(Session session, Class<?> entity, String queryName){
-		String queryString = getQuery(entity.getName(), queryName);
+		String queryString = getQuery(entity.getSimpleName(), queryName);
 		SQLQuery query = session.createSQLQuery(queryString);
 		query.addEntity(entity);
 		return query;

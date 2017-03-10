@@ -1,6 +1,9 @@
 package com.jsftemplate.bean;
 
+import com.jsftemplate.db.AppUser;
 import com.jsftemplate.model.AppUserModel;
+import com.jsftemplate.utils.SHAHash;
+import com.jsftemplate.utils.SessionUtils;
 
 public class Login extends Form{
 
@@ -14,9 +17,20 @@ public class Login extends Form{
 	private String password;
 	
 	public void logIn(){
-		if( password.equals(AppUserModel.findByUserName(userName).getPassword())){
-			System.out.println("Log in");
+		AppUser user = AppUserModel.findByUserName(userName);
+		if(validateUser(user)){
+			SessionUtils.setUserLogged(user);
+			redirect("/pages/home.xhtml");
 		}
+		
+	}
+	
+	public boolean validateUser(AppUser user){
+		String hashedPassword = SHAHash.hash(password);
+		if(user.getPassword().equals(hashedPassword)){
+			return true;
+		}
+		return false;
 	}
 	
 	public void regPage(){

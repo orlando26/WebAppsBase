@@ -4,11 +4,8 @@
 }
 
 #header{
-	height: 15vh;
+	height: 10vh;
 }
 #content{
-	height: 75vh;
-}
-#footer{
-	height: 10vh;
+	height: 90vh;
 }

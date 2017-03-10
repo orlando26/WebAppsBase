@@ -6,24 +6,36 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
-	xmlns:cc="http://java.sun.com/jsf/composite/cc">
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
-		<c:set var="log" value="#{SessionContext.login}"></c:set>
+		<c:set var="reg" value="#{SessionContext.register}"></c:set>
 		<h:form>
 			<b:jumbotron>
 				<h1>Register</h1><br></br>
 			
 				<label>Name</label>
-				<b:inputText></b:inputText>
+				<b:inputText value="#{reg.name}"></b:inputText>
+				
+				<label>Last Name</label>
+				<b:inputText value="#{reg.lastName}"></b:inputText>
 				
 				<label>Email</label>
-				<b:inputText></b:inputText>
+				<b:inputText value="#{reg.email}"></b:inputText>
 				
 				<label>Password</label>
-				<b:inputText></b:inputText>
+				<b:inputSecret value="#{reg.password}"></b:inputSecret>
+				
+				<label>Confirm Password</label>
+				<b:inputSecret value="#{reg.confirmPassword}"></b:inputSecret>
+				
+				<div style="float:right">
+					<b:commandButton value="Aceptar" actionListener="#{reg.register}" style="margin-right:5px" look="success"></b:commandButton>
+					<b:commandButton value="Cancelar" actionListener="#{reg.goBack}" look="danger"></b:commandButton>
+				</div>
+				
+				
 				
 			</b:jumbotron>
 			
