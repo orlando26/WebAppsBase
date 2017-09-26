@@ -13,18 +13,18 @@
 	<ui:define name="content">
 		<h:body>
 			<c:set var="log" value="#{SessionContext.login}"></c:set>
-			<b:messages></b:messages>
+			<b:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 			<b:jumbotron>
 				<h:form styleClass="form-signin" prependId="false">
 					<h2 class="form-signin-heading">Please sign in</h2>
-					<b:inputText id="email" value="#{log.userName}"
-						placeholder="Email address" required="true">
+					<b:inputText id="email" value="#{log.userName}"  
+						placeholder="Email address" >
 						<f:facet name="prepend">
 							<b:icon name="user" />
 						</f:facet>
 					</b:inputText>
-					<b:inputText id="password" value="#{log.password}"
-						placeholder="Password" type="password" required="true">
+					<b:inputText id="password" value="#{log.password}" 
+						placeholder="Password" type="password" >
 						<f:facet name="prepend">
 							<b:iconAwesome name="key" />
 						</f:facet>

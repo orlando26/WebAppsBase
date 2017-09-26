@@ -6,6 +6,7 @@ public class AppUser {
 	private String lastName;
 	private String email;
 	private String password;
+	private Boolean confirmed;
 	
 	
 	public Integer getId() {
@@ -38,4 +39,11 @@ public class AppUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public Boolean getConfirmed() {
+		return confirmed;
+	}
+	public void setConfirmed(Boolean confirmed) {
+		this.confirmed = confirmed;
+	}
+	
 }

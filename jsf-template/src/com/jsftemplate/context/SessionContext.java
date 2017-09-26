@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.jsftemplate.bean.ConfirmEmail;
 import com.jsftemplate.bean.Header;
 import com.jsftemplate.bean.Home;
 import com.jsftemplate.bean.Login;
@@ -21,11 +22,12 @@ public class SessionContext implements Serializable{
 	
 	private Login login;
 	
-	private Register register;
+	private static Register register;
 	
 	private Home home;
 	
 	private Header header;
+	
 
 
 
@@ -47,8 +49,8 @@ public class SessionContext implements Serializable{
 		return register;
 	}
 
-	public void setRegister(Register register) {
-		this.register = register;
+	public static void setRegister(Register reg) {
+		register = reg;
 	}
 
 	public Home getHome() {
@@ -72,6 +74,7 @@ public class SessionContext implements Serializable{
 	public void setHeader(Header header) {
 		this.header = header;
 	}
+
 	
 
 }

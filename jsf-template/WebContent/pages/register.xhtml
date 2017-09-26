@@ -15,21 +15,24 @@
 			<b:jumbotron>
 				<h1>Register</h1><br></br>
 			
-				<label>Name</label>
-				<b:inputText value="#{reg.name}"></b:inputText>
 				
-				<label>Last Name</label>
-				<b:inputText value="#{reg.lastName}"></b:inputText>
+				<b:inputText id="name" value="#{reg.name}" label="Name: " required="true" required-message="may not be null"></b:inputText>
+				<b:message for="@previous" />
 				
-				<label>Email</label>
-				<b:inputText value="#{reg.email}"></b:inputText>
+				<b:inputText value="#{reg.lastName}" label="Last Name: " required="true"></b:inputText>
+				<b:message for="@previous" />
 				
-				<label>Password</label>
-				<b:inputSecret value="#{reg.password}"></b:inputSecret>
+				<b:inputText value="#{reg.email}" label="Email: " required="true"></b:inputText>
+				<b:message for="@previous" />
 				
-				<label>Confirm Password</label>
-				<b:inputSecret value="#{reg.confirmPassword}"></b:inputSecret>
+				<b:inputSecret value="#{reg.password}" label="Password: " required="true"></b:inputSecret>
+				<b:message for="@previous" />
 				
+				<b:inputSecret value="#{reg.confirmPassword}" label="Confirm Password: " required="true"></b:inputSecret>
+				<b:message for="@previous" />
+				
+				<b:messages redisplay="false"/>
+				    
 				<div style="float:right">
 					<b:commandButton value="Aceptar" actionListener="#{reg.register}" style="margin-right:5px" look="success"></b:commandButton>
 					<b:commandButton value="Cancelar" actionListener="#{reg.goBack}" look="danger"></b:commandButton>

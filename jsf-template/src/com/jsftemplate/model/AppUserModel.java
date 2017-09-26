@@ -18,6 +18,12 @@ public class AppUserModel {
 		query.setParameter("userName", userName);
 		List<AppUser> list = query.list();
 		session.close();
-		return list.get(0);
+		AppUser user;
+		try{
+			user =  list.get(0);
+		}catch(IndexOutOfBoundsException e){
+			user = null;
+		}
+		return user;
 	}
 }

@@ -2,6 +2,7 @@ package com.jsftemplate.bean;
 
 import com.jsftemplate.db.AppUser;
 import com.jsftemplate.hibernate.HibernateSession;
+import com.jsftemplate.utils.Email;
 import com.jsftemplate.utils.SHAHash;
 
 public class Register extends Form{
@@ -10,7 +11,7 @@ public class Register extends Form{
 	 * Register bean
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	 
 	private String name;
 	
 	private String lastName;
@@ -22,7 +23,9 @@ public class Register extends Form{
 	private String confirmPassword;
 	
 	
-	
+	public Register(){
+		cleanFields();
+	}
 	
 	public void register(){
 		AppUser user = new AppUser();
@@ -32,7 +35,17 @@ public class Register extends Form{
 			user.setLastName(lastName);
 			user.setEmail(email);
 			user.setPassword(hashedpassword);
+			user.setConfirmed(false);
 			HibernateSession.saveObject(user);
+			String url = getRequest().getRequestURL().toString();
+			String newUrl = url.replace("register", "confirmemail");
+			newUrl += "?key=" + name;
+			Email mailObject = new Email();
+			mailObject.setTo(email);
+			mailObject.setSubject("Email Confirmation");
+			mailObject.setMessage("Welcome" + name + "/nyou can confirm your email in the following link./n" + newUrl);
+			mailObject.send();
+			
 			redirect("/index.xhtml");
 		}else{
 			System.out.println("Las contraseñas no coinciden");
@@ -41,6 +54,14 @@ public class Register extends Form{
 	
 	public void goBack(){
 		redirect("/index.xhtml");
+	}
+	
+	public void cleanFields(){
+		name = null;
+		lastName = null;
+		email = null;
+		password = null;
+		confirmPassword = null;
 	}
 	
 	/*Getters % Setters*/	

@@ -15,5 +15,6 @@
       <property name="lastName" column="Apu_LastName" type="string"/>
       <property name="email" column="Apu_Email" type="string"/>
       <property name="password" column="Apu_Password" type="string"/>
+      <property name="confirmed" column="Apu_Confirmed" type="yes_no"/>
    </class>
 </hibernate-mapping>
