@@ -23,7 +23,7 @@ public class Email {
 	/* Methods */
 	public void send() throws RuntimeException{
 		final String username = "orlandolozaarr@gmail.com";
-		final String password = "********";
+		final String password = "1646283orlando";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
