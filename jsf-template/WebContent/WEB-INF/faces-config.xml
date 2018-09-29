@@ -16,5 +16,16 @@
 		<managed-bean-class>com.jsftemplate.context.RequestContext</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>ApplicationContext</managed-bean-name>
+		<managed-bean-class>com.jsftemplate.context.ApplicationContext</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ViewContext</managed-bean-name>
+		<managed-bean-class>com.jsftemplate.context.ViewContext</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
     
 </faces-config>
