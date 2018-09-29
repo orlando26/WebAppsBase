@@ -34,14 +34,12 @@ public class AuthorizationFilter implements Filter{
 			String reqURI = reqt.getRequestURI();
 			if (reqURI.indexOf("/index.xhtml") >= 0
 					|| (ses != null && ses.getAttribute("user") != null)
-					|| reqURI.indexOf("/pages/register.xhtml") >= 0
-					|| reqURI.indexOf("/pages/confirmemail.xhtml") >= 0
 					|| reqURI.contains("javax.faces.resource"))
 				chain.doFilter(request, response);
 			else
 				resp.sendRedirect(reqt.getContextPath() + "/index.xhtml");
 			if(reqURI.indexOf("/index.xhtml") >= 0 && (ses != null && ses.getAttribute("user") != null)){
-				resp.sendRedirect(reqt.getContextPath() + "/pages/home.xhtml");
+				//send to home if user is logged
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

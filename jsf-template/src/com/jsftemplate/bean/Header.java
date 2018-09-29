@@ -1,7 +1,5 @@
 package com.jsftemplate.bean;
 
-import com.jsftemplate.utils.SessionUtils;
-
 public class Header extends Form{
 
 	/**
@@ -12,12 +10,11 @@ public class Header extends Form{
 	private boolean session;
 	
 	public void logOut(){
-		SessionUtils.getSession().invalidate();
-		redirect("/index.xhtml");
+		
 	}
 
 	public boolean getSession() {
-		session = SessionUtils.isValid();
+		session = false;
 		return session;
 	}
 
